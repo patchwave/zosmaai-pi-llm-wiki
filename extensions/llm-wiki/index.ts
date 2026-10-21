@@ -257,7 +257,7 @@ export default function (pi: ExtensionAPI) {
       return;
     }
 
-    const prompt = event.prompt || "";
+    const prompt = ("prompt" in event && event.prompt) || "";
     // Volatile, per-turn content (recall results + one-time topic-inference
     // directive) MUST NOT go into the system prompt (issue #92). The system
     // prompt is the provider's primary cache prefix; rewriting it every turn
